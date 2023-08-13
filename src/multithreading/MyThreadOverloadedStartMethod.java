@@ -16,6 +16,7 @@ public class MyThreadOverloadedStartMethod extends Thread{
     public static void main(String[] args) {
         MyThreadOverloadedStartMethod myThreadWithoutRunMethod = new MyThreadOverloadedStartMethod();
         myThreadWithoutRunMethod.start();
+        //myThreadWithoutRunMethod.start();   // IllegalThreadStateException
     }
 }
 
