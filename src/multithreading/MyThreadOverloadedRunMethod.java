@@ -1,6 +1,6 @@
 package multithreading;
 
-public class MyThreadOverloadedRunMethod extends Thread{
+public class MyThreadOverloadedRunMethod extends Thread {
 
 
     public void run() {
