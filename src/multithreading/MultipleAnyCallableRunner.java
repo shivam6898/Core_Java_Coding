@@ -25,3 +25,5 @@ import java.util.concurrent.Executors;
 	}
 
 }
+
+//it will give any one result at a time
