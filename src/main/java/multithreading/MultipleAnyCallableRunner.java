@@ -1,4 +1,6 @@
-package multithreading;
+package main.java.multithreading;
+
+import multithreading.CallableTask;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
