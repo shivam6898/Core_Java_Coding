@@ -1,8 +1,8 @@
-package corejava;
+package corejava.nestedclasses;
 
 //A static nested class is a nested class that is declared as static.
 // It is associated with the outer class, but it doesn't have access to instance-specific members of the outer class.
-class OuterClass {
+class Static_OuterClass {
     private static int outerStaticVar = 10;
     private int outerInstanceVar = 20;
 
@@ -14,7 +14,7 @@ class OuterClass {
     }
 
     public static void main(String[] args) {
-        OuterClass.StaticNestedClass nestedObj = new OuterClass.StaticNestedClass();
+        Static_OuterClass.StaticNestedClass nestedObj = new Static_OuterClass.StaticNestedClass();
         nestedObj.display();
     }
 }
