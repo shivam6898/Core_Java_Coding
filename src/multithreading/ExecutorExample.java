@@ -4,6 +4,8 @@ package multithreading;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+//Rather then creating individual threads and executing the job,
+// create thread poll and these thread poll is ready to perform the jobs.
 public class ExecutorExample {
     public static void main(String[] args) {
 
