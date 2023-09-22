@@ -17,6 +17,7 @@ public class Polymorphism {
        A aa = new B();
        aa.show();
        aa.print();
+       A.methodHidding();
       // aa.display();  not accesible to A class
         System.out.println("---------------------");
 
@@ -36,6 +37,10 @@ class A {
     public void print(){
         System.out.println("Java SE1");
     }
+
+    public static void methodHidding(){
+        System.out.println("JAVA SE1 Method Hidding");
+    }
 }
 
 class B extends A {
@@ -44,11 +49,13 @@ class B extends A {
     public void show() {
         System.out.println("JAva EE");
     }
-
-
     public void display() {
         System.out.println("Java EE1");
     }
+    public static void methodHidding(){
+        System.out.println("JAVA EE1");
+    }
+
 }
 
 
