@@ -1,5 +1,7 @@
 package corejava;
 
+//In java multiple inheritance is possible with interface
+//the problem is if multiple parent class have same method , then there is ambiguity to call
 public class MultipleInheritence {
     public static void main(String[] args) {
     inter demo  = new Demo();
