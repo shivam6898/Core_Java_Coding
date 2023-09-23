@@ -1,4 +1,4 @@
-package corejava;
+package corejava.exception;
 
 class AgeException extends Exception{
     public AgeException(String messaage){

@@ -1,4 +1,4 @@
-package corejava;
+package corejava.exception;
 
 //create custom exception
 class NegativeNumberException extends RuntimeException{
