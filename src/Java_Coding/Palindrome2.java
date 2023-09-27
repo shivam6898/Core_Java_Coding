@@ -3,7 +3,7 @@ package Java_Coding;
 //121 is palindrome
 public class Palindrome2 {
 	public static void main(String[] args) {
-		String input="123421";
+		String input="shivam";
 		String rev=reverse(input);
 		if (rev.equals(input))
 			System.out.println(true);

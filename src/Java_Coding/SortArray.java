@@ -5,8 +5,6 @@ import java.util.Arrays;
 public class SortArray {
 
     int[] array = {1, 2, 3, -1, -2, 4};
+    //Arrays.sort(array);
 
-//Arrays.sort(array);
-//
-//System.out.println(Arrays.toString(array));
 }
