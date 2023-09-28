@@ -1,4 +1,4 @@
-package corejava;
+package corejava.passbyvalue;
 
 public class Dog {
 

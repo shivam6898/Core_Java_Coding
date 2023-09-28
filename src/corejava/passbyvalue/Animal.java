@@ -1,4 +1,4 @@
-package corejava;
+package corejava.passbyvalue;
 
 //java is pass by value
 public class Animal {

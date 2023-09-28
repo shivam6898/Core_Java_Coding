@@ -16,6 +16,11 @@ class Employee{
         this.empal=empSal;
     }
 
+    Employee(String name ,int empal){
+        this.name=name;
+        this.empal=empal;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -30,6 +35,10 @@ class Employee{
     public int getEmpal(){
         return empal;
     }
+
+    public String getName(){
+        return name;
+    }
 }
 
 public class FindDuplicateEmployee {
@@ -40,7 +49,14 @@ public class FindDuplicateEmployee {
         List<Employee> employeeSal= List.of(new Employee(10000),
                 new Employee(20000), new Employee(15000));
 
+        List<Employee> employeeNameSalList= List.of(new Employee("john",10000),
+                new Employee("alex",20000), new Employee("john",15000));
+
         System.out.println(employeeSal.stream().sorted(Comparator.comparing(Employee::getEmpal).reversed()).collect(Collectors.toList()));
-        System.out.println( employees.stream().map(Employee::getAddress).collect(Collectors.groupingBy(Function.identity(),Collectors.counting())));
+        System.out.println(employees.stream().map(Employee::getAddress).collect(Collectors.groupingBy(Function.identity(),Collectors.counting())));
+
+        System.out.println(
+                employeeNameSalList.stream().map(emp -> emp.getName())
+        );
     }
 }

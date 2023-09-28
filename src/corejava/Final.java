@@ -4,7 +4,7 @@ package corejava;
 //final class can not be inherited
 //final variable value can not be changed
 //final method can not be overridden
-public  class Final {
+public class Final {
    //  final int x ;  CE : must be initialized
     //can be initialized in instance block
     {
