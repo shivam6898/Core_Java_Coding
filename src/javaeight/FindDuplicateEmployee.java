@@ -55,8 +55,5 @@ public class FindDuplicateEmployee {
         System.out.println(employeeSal.stream().sorted(Comparator.comparing(Employee::getEmpal).reversed()).collect(Collectors.toList()));
         System.out.println(employees.stream().map(Employee::getAddress).collect(Collectors.groupingBy(Function.identity(),Collectors.counting())));
 
-        System.out.println(
-                employeeNameSalList.stream().map(emp -> emp.getName())
-        );
     }
 }
