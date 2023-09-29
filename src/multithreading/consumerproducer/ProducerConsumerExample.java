@@ -13,7 +13,7 @@ class Producer implements Runnable {
     @Override
     public void run() {
         try {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 9; i++) {
                 int item = i;
                 System.out.println("Producing: " + item);
                 queue.put(item); // Put an item into the queue
