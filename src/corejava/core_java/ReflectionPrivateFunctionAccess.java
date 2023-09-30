@@ -1,4 +1,4 @@
-package corejava;
+package corejava.core_java;
 
 import java.lang.reflect.Method;
 

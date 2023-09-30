@@ -1,4 +1,4 @@
-package corejava;
+package corejava.core_java;
 
 //it is object reference or reference varaiable beacause it  always ref super class memeory
 //super class var,constructor, method

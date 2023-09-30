@@ -1,4 +1,4 @@
-package corejava;
+package corejava.core_java;
 
 
 //final class can not be inherited

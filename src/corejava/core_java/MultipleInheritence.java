@@ -1,4 +1,4 @@
-package corejava;
+package corejava.core_java;
 
 //In java multiple inheritance is possible with interface
 //the problem is if multiple parent class have same method , then there is ambiguity to call

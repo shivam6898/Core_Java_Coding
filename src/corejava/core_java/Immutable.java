@@ -1,4 +1,4 @@
-package corejava;
+package corejava.core_java;
 
 //1.Make the class final: This prevents other classes from extending your immutable class and potentially changing its behavior.
 //2.Declare all fields as private and final: This ensures that the state of the object cannot be modified after initialization.

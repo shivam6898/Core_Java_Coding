@@ -1,4 +1,4 @@
-package corejava;
+package corejava.core_java;
 
 
 class ThisKeyword {

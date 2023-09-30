@@ -1,4 +1,4 @@
-package corejava;
+package corejava.core_java;
 
 public class MainMethod {
     //the main method is static cause to start the program JVM calls directly
