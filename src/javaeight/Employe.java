@@ -6,14 +6,24 @@ import java.util.stream.Collectors;
 
 public class Employe {
 
-    Integer id;
-    String name;
-    Integer age;
+    private Integer id;
+    private String name;
+    private Integer age;
+    private List<Project> project;
+
 
     public Employe(Integer id, String name, Integer age) {
         this.id = id;
         this.name = name;
         this.age = age;
+    }
+
+
+    public Employe(Integer id, String name, Integer age, List<Project> project) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.project = project;
     }
 
     public Integer getId() {
@@ -22,6 +32,14 @@ public class Employe {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<Project> getProject() {
+        return project;
+    }
+
+    public void setProject(List<Project> project) {
+        this.project = project;
     }
 
     public String getName() {
@@ -59,45 +77,60 @@ public class Employe {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", project=" + project +
                 '}';
     }
 }
 
 class MainEmploye {
     public static void main(String[] args) {
+        System.out.println(Arrays.stream("aabbccdefaa".split("")).collect(Collectors.groupingBy(Function.identity(),Collectors.counting())));;
         List<Employe> employes = Arrays.asList(new Employe(1, "ram", 20)
                 , new Employe(2, "shyam", 21)
                 , new Employe(3, "ram", 20)
                 , new Employe(4, "sita", 22)
                 , new Employe(5, "raj", 19)
-                , new Employe(4, "sita", 21)
+                , new Employe(6, "sita", 21)
+                , new Employe(7, "lakhan", 22)
+               // ,new Employe(8, null, 22)
         );
 
+        Map<Integer, Employe> employeeMap = employes.stream()
+                .collect(Collectors.toMap(
+                        Employe::getId, // Key is the employee ID
+                        employe -> employe // Value is the Employee object itself
+                ));
+        employeeMap.forEach((id,employe) -> System.out.println("EmpId: " + id+ " Employee"+employe));
+
         // <age,List<employee>>
-        Map<Integer, List<Employe>> ageMap = employes.stream().collect(Collectors.groupingBy(employe -> employe.age));
-        System.out.println(ageMap);
+        Map<Integer, List<Employe>> ageMap = employes.stream().collect(Collectors.groupingBy(employe -> employe.getAge()));
+        System.out.println("Map of Employee as Age is Key "+ageMap);
 
         //<age,set<employee>> employee is unique
         Map<Integer, Set<Employe>> integerListMap = employes.stream().collect(Collectors.groupingBy(e -> e.getAge(), Collectors.toSet()));
-        System.out.println(integerListMap);
+        System.out.println("Map of Employee as Age is Key without duplicate employee "+integerListMap);
 
         //sorted
         Map<Integer, Set<Employe>> setMap = employes.stream().collect(Collectors.groupingBy(e -> e.getAge(), TreeMap::new, Collectors.toSet()));
-        System.out.println(setMap);
+        System.out.println("sort the employee with age "+setMap);
 
         List<Integer> ageList = employes.stream().map(e -> e.getAge()).sorted().collect(Collectors.toList());
-        System.out.println("ageList: " + ageList);
-        IntSummaryStatistics intSummaryStatistics = ageList.stream().mapToInt(it -> it).summaryStatistics();
+        System.out.println("Age of employee in sorted order: " + ageList);
 
+        IntSummaryStatistics intSummaryStatistics = ageList.stream().mapToInt(it -> it).summaryStatistics();
         System.out.println("Max age: " + intSummaryStatistics.getMax());
         System.out.println("Min age: " + intSummaryStatistics.getMin());
         System.out.println("Average age: " + intSummaryStatistics.getAverage());
 
         //find 2,and third youngest employee
-        ageList.stream().skip(1).limit(2).collect(Collectors.toList());
+        employes.stream().map(employe -> employe.getAge()).sorted().skip(1).limit(2).collect(Collectors.toSet());
+
+       Set<Integer> ages = employes.stream().collect(Collectors.groupingBy(employe -> employe.getAge()))
+               .keySet().stream().sorted().skip(1).limit(2).collect(Collectors.toSet());
+        System.out.println("second and third youngest age "+ages);
 
         //upper case , and join with comma list of string
-        String s = employes.stream().map(e -> e.getName().toUpperCase()).sorted().distinct().collect(Collectors.joining(","));
+        String s = employes.stream().filter(e-> Objects.nonNull(e.getName())).map(e -> e.getName().toUpperCase()).sorted().distinct().collect(Collectors.joining(","));
         System.out.println(s);
 
         //find duplicate names
@@ -150,6 +183,59 @@ class MainEmploye {
 
         //noneMatch -> no one should match the condition
         Boolean noneMatch = employes.stream().noneMatch(e-> e.getName().contains("sa"));
+
+        // Sort employees by name and then age using Java streams
+        employes.sort(
+                Comparator.comparing(Employe::getName)
+                        .thenComparing(Employe::getAge)
+        );
+        employes.forEach(System.out::println);
+
+        //count the number of employees age >  30
+        Long countOfEmploye  =employes.stream().filter(e-> e.getAge()> 21).count();
+
+       Optional<String> optionalName=employes.stream().filter(e-> e.getName().equals("test")).map(employe -> employe.getName()).findFirst();
+       if (optionalName.isPresent()){
+           System.out.println(optionalName.get());
+       }else {
+           System.out.println("name is not present");
+       }
+
+        List<Employe> employees = new ArrayList<>();
+        Project projectA = new Project(101, "java", "Description A");
+        Project projectB = new Project(102, "javascript", "Description B");
+        Project projectC = new Project(103, "python", "Description C");
+        Project projectD = new Project(104, "react", "Description D");
+        Project projectE = new Project(105, "springboot", "Description E");
+
+        List<Project> projectList1= new ArrayList<>();
+        projectList1.add(projectA);
+        projectList1.add(projectB);
+        projectList1.add(projectC);
+
+
+        List<Project> projectList2= new ArrayList<>();
+        projectList2.add(projectA);
+        projectList2.add(projectD);
+        projectList2.add(projectE);
+
+        employees.add(new Employe(1, "John", 30, projectList1));
+        employees.add(new Employe(2, "Alice", 25, projectList2));
+        employees.add(new Employe(3, "Bob", 35, projectList1));
+        employees.add(new Employe(4, "Eve", 28, projectList2));
+        employees.add(new Employe(5, "Charlie", 32, projectList1));
+
+        Set<Project> allProjects= employees.stream().flatMap(employe -> employe.getProject().stream()).collect(Collectors.toSet());
+        System.out.println("all projects of employee" + allProjects);
+
+        Map<String, List<String>> employeeProjectsMap = employees.stream()
+                .collect(Collectors.toMap(
+                        Employe::getName,
+                        employee -> employee.getProject().stream()
+                                .map(Project::getProjectname)
+                                .collect(Collectors.toList())
+                ));
+        System.out.println(employeeProjectsMap);
 
 
 
