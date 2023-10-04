@@ -1,5 +1,7 @@
 package Java_Coding.array;
 
+
+//to find second smallest element just change > to < and MIN_VALUE to MAX_VALUE
 public class SecondLargestInArray {
     public static void main(String[] args) {
         int[] arr = { 12, 34, 10, 6, 40 };

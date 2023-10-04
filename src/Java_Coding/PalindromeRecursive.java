@@ -1,7 +1,7 @@
 package Java_Coding;
 
 //121 is palindrome
-public class Palindrome2 {
+public class PalindromeRecursive {
 	public static void main(String[] args) {
 		String input="shivam";
 		String rev=reverse(input);
