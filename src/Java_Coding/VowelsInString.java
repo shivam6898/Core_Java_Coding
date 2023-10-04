@@ -14,4 +14,3 @@ class VowelsInString {
                 .forEach(ch -> System.out.println((char) ch));  // Print each vowel
     }
 }
-

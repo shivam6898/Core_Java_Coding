@@ -8,7 +8,10 @@ import java.util.stream.Collectors;
 public class CharacterCounter {
 	public static void main(String[] args) {
 		String str="programming123";
+		//1
 		System.out.println(getCharFreq(str));
+
+		//2.
 		System.out.println(str.chars()
 				.mapToObj(ch -> (char) ch)
 				.filter(Character::isLetterOrDigit) // Optional: Filter out non-letter/digit characters
@@ -18,15 +21,15 @@ public class CharacterCounter {
 	}
 
 	private static Map<Character, Integer> getCharFreq(String str) {
-		Map< Character, Integer> charFreq= new HashMap<>();
-		if (str != null) {
+		Map< Character, Integer> hashMap= new HashMap<>();
 			for (Character ch:str.toCharArray()) {
-				Integer count=charFreq.get(ch);
-				int newCount=(count==null? 1:count+1);
-				charFreq.put(ch, newCount);
+				if (hashMap.containsKey(ch)){
+					hashMap.put(ch,hashMap.get(ch) +1);
+				}else {
+					hashMap.put(ch,1);
+				}
 			}
-		}
-		return charFreq;
+		return hashMap;
 	}
 
 }
