@@ -2,7 +2,7 @@ package corejava.core_java;
 
 public interface Interf {
 
-    //abstact method by default puublic abstract
+    //abstract method is by default public abstract
     public abstract void show();
 
     //default method with default Keyword

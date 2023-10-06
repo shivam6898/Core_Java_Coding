@@ -7,7 +7,7 @@ public class SumOfArray {
         int[] intArr = {10, 9, 20, 11, 30, 40};
         int sum = 0;
         for (int i = 0; i < intArr.length; i++) {
-            sum = sum + intArr[i];
+            sum += intArr[i];
         }
         System.out.println(sum);
 

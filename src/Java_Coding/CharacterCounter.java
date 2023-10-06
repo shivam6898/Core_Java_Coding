@@ -1,5 +1,6 @@
 package Java_Coding;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -17,6 +18,8 @@ public class CharacterCounter {
 				.filter(Character::isLetterOrDigit) // Optional: Filter out non-letter/digit characters
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
 		);
+
+//		System.out.println(Arrays.stream(str.split("")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting())));
 
 	}
 

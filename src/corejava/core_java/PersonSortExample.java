@@ -7,12 +7,29 @@ import java.util.List;
 
 
 class Person {
-   public int age ;
-   public String name;
+   private int age ;
+   private String name;
    Person(int age, String name){
        this.age=age;
        this.name=name;
    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -25,11 +42,11 @@ class PersonSort implements Comparator<Person> {
     @Override
     public int compare(Person person1, Person person2) {
         //compare by age
-        int agecomparator  = Integer.compare(person1.age,person2.age);
+        int agecomparator  = Integer.compare(person1.getAge(),person2.getAge());
 
         // If ages are the same, compare by name
         if (agecomparator==0){
-           return person1.name.compareTo(person2.name);
+           return person1.getName().compareTo(person2.getName());
         }
         return agecomparator;
     }
