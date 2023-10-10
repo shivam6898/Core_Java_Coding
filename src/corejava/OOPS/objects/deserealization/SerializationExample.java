@@ -25,6 +25,7 @@ public class SerializationExample {
         // Serialize an object to file
         try {
             Student student = new Student("John Doe", 20);
+            //we can use txt file also..
             FileOutputStream fileOut = new FileOutputStream("student.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(student);
