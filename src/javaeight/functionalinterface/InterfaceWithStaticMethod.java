@@ -3,6 +3,8 @@ package javaeight.functionalinterface;
 
 //static method are not by default available to all implementation classes
 //implementation class dont have access directly need to call by Interface name
+
+//with static method inside interface we can keep utility method inside interface without creating additional classes and objects
 public interface InterfaceWithStaticMethod {
 
     public static void staticMethod(){
