@@ -7,7 +7,7 @@ package javaeight.functionalinterface;
 //with static method inside interface we can keep utility method inside interface without creating additional classes and objects
 public interface InterfaceWithStaticMethod {
 
-    public static void staticMethod(){
+    static void staticMethod(){
         System.out.println("static method inside interface");
     }
 }
