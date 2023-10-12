@@ -1,4 +1,4 @@
-package multithreading;
+package multithreading.typestocreatethread;
 
 public class MyThread  extends Thread{
 
