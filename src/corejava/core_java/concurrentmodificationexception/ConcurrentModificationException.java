@@ -1,4 +1,4 @@
-package corejava.core_java;
+package corejava.core_java.concurrentmodificationexception;
 
 import java.util.ArrayList;
 import java.util.Collections;
